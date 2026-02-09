@@ -29,6 +29,13 @@ const ProfessorRoute = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
+const StudentRoute = ({ children }: { children: React.ReactNode }) => {
+  const { profile, loading } = useAuth();
+  if (loading) return <div className="flex items-center justify-center min-h-screen"><div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" /></div>;
+  if (profile?.role !== "aluno" && profile?.role !== "student") return <Navigate to="/dashboard" replace />;
+  return <>{children}</>;
+};
+
 const RoleRedirect = () => {
   const { profile, loading } = useAuth();
   if (loading) return null;
@@ -48,7 +55,7 @@ const AppRoutes = () => {
         <Route path="alunos" element={<ProfessorRoute><Alunos /></ProfessorRoute>} />
         <Route path="relatorios" element={<ProfessorRoute><Relatorios /></ProfessorRoute>} />
         <Route path="configuracoes" element={<ProfessorRoute><Configuracoes /></ProfessorRoute>} />
-        <Route path="boletim" element={<Boletim />} />
+        <Route path="boletim" element={<StudentRoute><Boletim /></StudentRoute>} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
