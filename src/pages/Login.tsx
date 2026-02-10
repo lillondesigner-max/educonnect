@@ -91,7 +91,7 @@ const Login = () => {
       <div className="w-full max-w-md animate-fade-in-up">
         <div className="text-center mb-8">
           <div className="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center shadow-2xl mx-auto mb-6 overflow-hidden">
-            <img src="/src/image/Simbolo_EduConnect_white.png" alt="EduConnect Logo" className="w-12 h-12 object-contain" />
+            <img src="/Simbolo_EduConnect_white.png" alt="EduConnect Logo" className="w-12 h-12 object-contain" />
           </div>
           <h1 className="text-3xl font-bold text-sidebar-foreground">EduConnect</h1>
         </div>
