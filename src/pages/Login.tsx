@@ -45,8 +45,8 @@ const Login = () => {
       <div className="min-h-screen bg-sidebar flex items-center justify-center p-4">
         <div className="w-full max-w-md animate-fade-in-up">
           <div className="text-center mb-12">
-            <div className="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center shadow-2xl mx-auto mb-6">
-              <BookOpen className="w-10 h-10 text-primary-foreground" />
+            <div className="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center shadow-2xl mx-auto mb-6 overflow-hidden">
+              <img src="/src/image/Simbolo_EduConnect_white.png" alt="EduConnect Logo" className="w-12 h-12 object-contain" />
             </div>
             <h1 className="text-4xl font-bold text-sidebar-foreground mb-2">EduConnect</h1>
             <p className="text-sidebar-accent-foreground/70">Sistema de Gestão Escolar</p>
@@ -90,8 +90,8 @@ const Login = () => {
     <div className="min-h-screen bg-sidebar flex items-center justify-center p-4">
       <div className="w-full max-w-md animate-fade-in-up">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-xl mx-auto mb-4">
-            <BookOpen className="w-8 h-8 text-primary-foreground" />
+          <div className="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center shadow-2xl mx-auto mb-6 overflow-hidden">
+            <img src="/src/image/Simbolo_EduConnect_white.png" alt="EduConnect Logo" className="w-12 h-12 object-contain" />
           </div>
           <h1 className="text-3xl font-bold text-sidebar-foreground">EduConnect</h1>
         </div>

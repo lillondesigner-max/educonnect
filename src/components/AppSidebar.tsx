@@ -7,6 +7,7 @@ import {
   LogOut,
   BookOpen,
 } from "lucide-react";
+import { useMemo } from "react";
 import { NavLink } from "@/components/NavLink";
 import { useAuth } from "@/contexts/AuthContext";
 import { useAlunoProfile } from "@/hooks/useAlunos";
@@ -43,16 +44,21 @@ export function AppSidebar() {
   const { data: alunoRecord } = useAlunoProfile();
   const { data: notas = [] } = useNotasByAluno(alunoRecord?.id || null);
 
-  const media = notas.length > 0
-    ? notas.reduce((s, n) => s + Number(n.nota_valor), 0) / notas.length
-    : 0;
+  const stats = useMemo(() => {
+    if (notas.length === 0) return { media: 0, total: 0 };
+    const values = notas.map((n) => Number(n.nota_valor));
+    return {
+      media: values.reduce((a, b) => a + b, 0) / values.length,
+      total: values.length,
+    };
+  }, [notas]);
 
   return (
     <Sidebar className="border-r-0">
       <div className="p-6 border-b border-sidebar-border">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-            <BookOpen className="w-5 h-5 text-primary-foreground" />
+          <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center overflow-hidden">
+            <img src="/src/image/Simbolo_EduConnect_white.png" alt="EduConnect Logo" className="w-6 h-6 object-contain" />
           </div>
           <div>
             <h1 className="text-lg font-bold text-sidebar-foreground">EduConnect</h1>
@@ -94,11 +100,11 @@ export function AppSidebar() {
               <div className="px-4 py-2 space-y-4">
                 <div className="bg-primary/5 rounded-lg p-3">
                   <p className="text-xs text-muted-foreground uppercase font-bold">Média Geral</p>
-                  <p className="text-2xl font-bold text-primary">{media.toFixed(1)}</p>
+                  <p className="text-2xl font-bold text-primary">{stats.media.toFixed(1)}</p>
                 </div>
                 <div className="bg-primary/5 rounded-lg p-3">
                   <p className="text-xs text-muted-foreground uppercase font-bold">Total Avaliações</p>
-                  <p className="text-2xl font-bold text-primary">{notas.length}</p>
+                  <p className="text-2xl font-bold text-primary">{stats.total}</p>
                 </div>
               </div>
             </SidebarGroupContent>
