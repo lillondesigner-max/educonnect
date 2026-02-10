@@ -58,7 +58,7 @@ export function AppSidebar() {
       <div className="p-6 border-b border-sidebar-border">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center overflow-hidden">
-            <img src="/src/image/Simbolo_EduConnect_white.png" alt="EduConnect Logo" className="w-6 h-6 object-contain" />
+            <img src="/Simbolo_EduConnect_white.png" alt="EduConnect Logo" className="w-6 h-6 object-contain" />
           </div>
           <div>
             <h1 className="text-lg font-bold text-sidebar-foreground">EduConnect</h1>
